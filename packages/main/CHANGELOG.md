@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.6.0
+
+### Minor Changes
+
+- Fix typings for Metadata
+
 ## 1.5.0
 
 ### Minor Changes

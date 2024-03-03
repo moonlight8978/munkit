@@ -2,10 +2,10 @@ import "reflect-metadata";
 
 export interface MetadataDefinitions {}
 
-export const Metadata = <T extends keyof MetadataDefinitions>(
+export function Metadata<T extends keyof MetadataDefinitions>(
   key: T,
   value: MetadataDefinitions[T]
-) => {
+) {
   return (...args: any[]) => {
     switch (args.length) {
       case 1: {
@@ -27,7 +27,7 @@ export const Metadata = <T extends keyof MetadataDefinitions>(
         throw new Error("Not supported yet");
     }
   };
-};
+}
 
 export function getMetadata<T extends keyof MetadataDefinitions, U>(
   key: T,
