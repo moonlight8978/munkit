@@ -1,6 +1,14 @@
 {
   "name": "@munkit/eslint-config",
   "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "url": "https://github.com/moonlight8978/munkit",
+    "directory": "packages/eslint-config",
+    "type": "git"
+  },
   "files": [
     "library.js",
     "next.js",

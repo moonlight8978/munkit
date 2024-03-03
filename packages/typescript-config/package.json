@@ -1,8 +1,13 @@
 {
   "name": "@munkit/typescript-config",
   "version": "1.0.0",
-  "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "repository": {
+    "url": "https://github.com/moonlight8978/munkit",
+    "directory": "packages/typescript-config",
+    "type": "git"
+  },
+  "license": "MIT"
 }
