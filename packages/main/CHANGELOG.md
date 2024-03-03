@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.4.0
+
+### Minor Changes
+
+- Fix package.json
+
 ## 1.3.0
 
 ### Minor Changes
