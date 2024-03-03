@@ -1,0 +1,13 @@
+{
+  "extends": "@munkit/typescript-config/esm.json",
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "build"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "build",
+    "paths": {
+      "@/decorator/*": ["./src/decorator/*"],
+      "@/types/*": ["./types/*"]
+    }
+  }
+}
