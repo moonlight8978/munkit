@@ -11,8 +11,11 @@
   "version": "1.0.0",
   "type": "module",
   "exports": {
-    "decorator": "./build/decorator/main.js"
+    "decorator": "./build/src/decorator/main.js"
   },
+  "files": [
+    "build/src"
+  ],
   "scripts": {
     "prebuild": "rimraf build",
     "build": "tsc",
