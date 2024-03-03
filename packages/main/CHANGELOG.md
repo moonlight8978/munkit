@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.5.0
+
+### Minor Changes
+
+- Support CJS & ESM
+
 ## 1.4.0
 
 ### Minor Changes
