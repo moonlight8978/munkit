@@ -1,5 +1,11 @@
 # @munkit/typescript-config
 
+## 1.2.0
+
+### Minor Changes
+
+- Generate source map
+
 ## 1.1.0
 
 ### Minor Changes

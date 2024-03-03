@@ -4,6 +4,8 @@
   "compilerOptions": {
     "declaration": true,
     "esModuleInterop": true,
+    "sourceMap": true,
+    "declarationMap": true,
     "incremental": false,
     "isolatedModules": true,
     "lib": [

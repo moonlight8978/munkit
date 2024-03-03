@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.3.0
+
+### Minor Changes
+
+- Generate source map
+
 ## 1.2.0
 
 ### Minor Changes
