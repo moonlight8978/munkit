@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.2.0
+
+### Minor Changes
+
+- Fix exports entry
+
 ## 1.1.0
 
 ### Minor Changes

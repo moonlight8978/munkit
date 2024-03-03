@@ -8,13 +8,15 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "exports": {
-    "decorator": "./build/src/decorator/main.js"
+    ".": "./build/src/index.js",
+    "./decorator": "./build/src/decorator/main.js"
   },
   "files": [
-    "build/src"
+    "build",
+    "!build/__tests__"
   ],
   "scripts": {
     "prebuild": "rimraf build",
