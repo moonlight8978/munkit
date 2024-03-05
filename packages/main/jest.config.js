@@ -1,12 +1,15 @@
-import { pathsToModuleNameMapper } from "ts-jest/dist/config/index.js";
-import tsconfig from "./tsconfig.json" with { type: "json" };
+const { pathsToModuleNameMapper } = require("ts-jest");
+const tsconfig = require("./tsconfig.json");
 
 /** @type {import('ts-jest').JestConfigWithTsJest} */
-export default {
+const config = {
   preset: "ts-jest",
   testEnvironment: "node",
+  roots: ["<rootDir>"],
+  modulePaths: [tsconfig.compilerOptions.baseUrl],
   moduleNameMapper: pathsToModuleNameMapper(tsconfig.compilerOptions.paths, {
     prefix: "<rootDir>/",
-    useESM: true,
   }),
 };
+
+module.exports = config;

@@ -1,4 +1,4 @@
-import { Metadata, getMetadata } from "@/decorator/main.js";
+import { Metadata, getMetadata } from "@/decorator/main";
 
 @Metadata("grade", 6)
 class Student {

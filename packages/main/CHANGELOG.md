@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.7.0
+
+### Minor Changes
+
+- Fix minor bugs
+
 ## 1.6.0
 
 ### Minor Changes

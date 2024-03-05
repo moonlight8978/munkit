@@ -13,4 +13,5 @@ module.exports = {
       "newlines-between": "always",
     },
   ],
+  "@typescript-eslint/no-explicit-any": "off",
 };

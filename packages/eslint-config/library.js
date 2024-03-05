@@ -3,7 +3,6 @@ const { resolve } = require("node:path");
 const baseRules = require("./rules/base");
 
 const project = resolve(process.cwd(), "tsconfig.json");
-console.log(project);
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
@@ -12,6 +11,7 @@ module.exports = {
     "plugin:import/recommended",
     "prettier",
     "eslint-config-turbo",
+    "plugin:@typescript-eslint/recommended",
   ],
   plugins: ["only-warn", "jest"],
   globals: {
@@ -38,6 +38,19 @@ module.exports = {
   overrides: [
     {
       files: ["*.js?(x)", "*.ts?(x)"],
+    },
+    {
+      files: [
+        "*.test.js?(x)",
+        "*.test.ts?(x)",
+        "*.spec.js?(x)",
+        "*.spec.ts?(x)",
+      ],
+      env: {
+        "jest/globals": true,
+      },
+      plugins: ["jest"],
+      extends: ["plugin:jest/recommended"],
     },
   ],
   rules: {
