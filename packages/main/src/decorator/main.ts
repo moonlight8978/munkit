@@ -55,7 +55,7 @@ export function getMetadata<T extends keyof MetadataDefinitions>(
   }
 
   if (singular) {
-    return metadata[0];
+    return metadata?.[0];
   }
 
   return metadata as MetadataDefinitions[T];

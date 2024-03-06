@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.9.0
+
+### Minor Changes
+
+- Fix nullish safe get first item
+
 ## 1.8.0
 
 ### Minor Changes
