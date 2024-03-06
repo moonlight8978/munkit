@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.8.0
+
+### Minor Changes
+
+- Support emit metadata
+
 ## 1.7.0
 
 ### Minor Changes
