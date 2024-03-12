@@ -1,5 +1,11 @@
 # @munkit/typescript-config
 
+## 1.5.0
+
+### Minor Changes
+
+- Add eslint/ts config for electron
+
 ## 1.4.0
 
 ### Minor Changes

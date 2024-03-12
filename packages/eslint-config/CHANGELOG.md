@@ -1,5 +1,11 @@
 # @munkit/eslint-config
 
+## 1.3.0
+
+### Minor Changes
+
+- Add eslint/ts config for electron
+
 ## 1.2.0
 
 ### Minor Changes
