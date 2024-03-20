@@ -1,13 +1,13 @@
-import { Metadata, getMetadata } from "@/decorator/main";
+import { Metadata, getAllMetadata, getMetadata } from "@/decorator/main";
 
 @Metadata("grade", 6)
 class Student {
   @Metadata("age.visibility", "hidden")
-  @Metadata("student.id", { emit: true })
-  @Metadata("student.properties", { emit: true })
+  @Metadata("student.id")
+  @Metadata("student.properties")
   declare age: number;
 
-  @Metadata("student.properties", { emit: true })
+  @Metadata("student.properties")
   declare name: string;
 
   constructor(age: number) {
@@ -26,13 +26,13 @@ describe("Metadata", () => {
   });
 
   it("should get the emitted metadata in singular", () => {
-    expect(getMetadata("student.id", Student, { singular: true })).toEqual(
-      "age",
-    );
+    expect(getAllMetadata("student.id", Student)[0].name).toEqual("age");
   });
 
   it("should get the emitted metadata", () => {
-    expect(getMetadata("student.properties", Student)).toEqual(["age", "name"]);
+    expect(
+      getAllMetadata("student.properties", Student).map((p) => p.name),
+    ).toEqual(["age", "name"]);
   });
 });
 

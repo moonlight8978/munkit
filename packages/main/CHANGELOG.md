@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.10.0
+
+### Minor Changes
+
+- ConfigMap support
+
 ## 1.9.0
 
 ### Minor Changes

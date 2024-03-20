@@ -4,6 +4,7 @@
 
 ### Minor Changes
 
+- ConfigMap support
 - Add eslint/ts config for electron
 
 ## 1.4.0

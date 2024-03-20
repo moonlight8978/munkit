@@ -1,1 +1,2 @@
-export * from "./decorator/main.js";
+export * from "./decorator/main";
+export * from "./config-map/main";
