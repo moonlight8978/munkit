@@ -8,10 +8,10 @@ import commonjs from "@rollup/plugin-commonjs";
  */
 const entryFileNames = (chunk) => {
   if (chunk.name.includes("virtual")) {
-    return "main.js";
+    return "main.mjs";
   }
 
-  return `${chunk.name}.js`;
+  return `${chunk.name}.mjs`;
 };
 
 /**

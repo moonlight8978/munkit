@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.13.0
+
+### Minor Changes
+
+- chore: build esm with mjs
+
 ## 1.12.0
 
 ### Minor Changes
