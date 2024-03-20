@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.15.0
+
+### Minor Changes
+
+- fix: fix esm mjs typings
+
 ## 1.14.0
 
 ### Minor Changes

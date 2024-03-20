@@ -8,7 +8,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.14.0",
+  "version": "1.15.0",
   "main": "./build/cjs/main.js",
   "types": "./build/cjs/main.d.ts",
   "module": "./build/esm/main.mjs",
@@ -16,10 +16,17 @@
     ".": {
       "require": "./build/cjs/main.js",
       "import": "./build/esm/main.mjs",
-      "module": "./build/esm/main.mjs"
+      "module": "./build/esm/main.mjs",
+      "types": "./build/esm/main.d.ts"
     },
-    "./decorator": "./build/esm/decorator/main.mjs",
-    "./config-map": "./build/esm/config-map/main.mjs"
+    "./decorator": {
+      "default": "./build/esm/decorator/main.mjs",
+      "types": "./build/esm/decorator/main.d.ts"
+    },
+    "./config-map": {
+      "default": "./build/esm/config-map/main.mjs",
+      "types": "./build/esm/config-map/main.d.ts"
+    }
   },
   "files": [
     "build"
