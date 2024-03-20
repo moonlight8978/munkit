@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.11.0
+
+### Minor Changes
+
+- fix: fix config-map metadata typings
+
 ## 1.10.0
 
 ### Minor Changes

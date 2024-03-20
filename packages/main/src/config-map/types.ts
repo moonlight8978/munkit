@@ -2,7 +2,7 @@ export interface ConfigMapBindings {}
 
 export type AttributeSchema = ({ value }: { value: any }) => any;
 
-declare module "src/decorator/main" {
+declare module "../decorator/main.js" {
   interface MetadataDefinitions {
     "configmap.bind": {
       file: string;
