@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.14.0
+
+### Minor Changes
+
+- fix: fix package.json to use mjs
+
 ## 1.13.0
 
 ### Minor Changes
