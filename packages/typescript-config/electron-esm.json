@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Electron ESM",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "incremental": true
+  }
+}
