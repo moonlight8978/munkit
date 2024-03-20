@@ -2,61 +2,48 @@ import "reflect-metadata";
 
 export interface MetadataDefinitions {}
 
-export function Metadata<T extends keyof MetadataDefinitions>(
-  key: T,
-  options: { emit: boolean },
-): PropertyDecorator;
+export type PropertyInfo<T extends keyof MetadataDefinitions> = {
+  metadata: MetadataDefinitions[T];
+  name: string;
+};
 
 export function Metadata<T extends keyof MetadataDefinitions>(
   key: T,
-  value: MetadataDefinitions[T],
-): any;
-
-export function Metadata(...args: any[]) {
-  const [key, valueOrOptions] = args;
-
+  maybeValue?: MetadataDefinitions[T],
+) {
   return (...args: any[]) => {
-    if (valueOrOptions?.emit === true) {
+    const property = args[1];
+
+    if (property) {
       const klass = args[0].constructor;
-      const property = args[1];
-      const properties = Reflect.getMetadata(key, klass) ?? [];
-      return Reflect.defineMetadata(key, [...properties, property], klass);
+
+      const propertyInfo = {
+        name: property,
+        metadata: maybeValue,
+      };
+
+      if (!Reflect.hasMetadata(key, klass)) {
+        Reflect.defineMetadata(key, [], klass);
+      }
+
+      const propertiesInfo = Reflect.getMetadata(key, klass);
+      propertiesInfo.push(propertyInfo);
     }
 
-    const value = valueOrOptions;
-    Reflect.defineMetadata(key, value, args[0], args[1]);
+    Reflect.defineMetadata(key, maybeValue, args[0], property);
   };
 }
 
-export function getMetadata<T extends keyof MetadataDefinitions, U>(
-  key: T,
-  klass: { new (...args: any[]): U },
-  options?: { singular: boolean },
-): MetadataDefinitions[T];
-
-export function getMetadata<T extends keyof MetadataDefinitions, U>(
-  key: T,
-  instance: U,
-  property: keyof U,
-): MetadataDefinitions[T];
-
 export function getMetadata<T extends keyof MetadataDefinitions>(
+  key: T,
   ...args: any[]
-) {
-  const [key, instanceOrClass, propertyOrOptions] = args;
-  const singular = propertyOrOptions?.singular || false;
-  let metadata: MetadataDefinitions[T] | MetadataDefinitions[T][];
+): MetadataDefinitions[T] {
+  return Reflect.getMetadata(key, args[0], args[1]);
+}
 
-  if (Reflect.hasMetadata(key, instanceOrClass)) {
-    metadata = Reflect.getMetadata(key, instanceOrClass);
-  } else {
-    const property = propertyOrOptions;
-    metadata = Reflect.getMetadata(key, instanceOrClass, property);
-  }
-
-  if (singular) {
-    return metadata?.[0];
-  }
-
-  return metadata as MetadataDefinitions[T];
+export function getAllMetadata<T extends keyof MetadataDefinitions>(
+  key: T,
+  klass: any,
+): PropertyInfo<T>[] {
+  return Reflect.getMetadata(key, klass) ?? [];
 }

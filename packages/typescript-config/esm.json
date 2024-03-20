@@ -5,10 +5,7 @@
     "esModuleInterop": true,
     "incremental": false,
     "isolatedModules": true,
-    "lib": [
-      "ESNext",
-      "dom"
-    ],
+    "lib": ["ESNext", "dom"],
     "module": "ESNext",
     "moduleDetection": "force",
     "moduleResolution": "Bundler",
