@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.12.0
+
+### Minor Changes
+
+- fix: fix config map main.js missing
+
 ## 1.11.0
 
 ### Minor Changes
