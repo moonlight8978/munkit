@@ -36,12 +36,22 @@ export class ConfigMapCollection<
     return Array.from(this).filter(callbackfn);
   }
 
-  public get<T>(key: T) {
+  public get<TKey>(key: TKey): T {
+    const record = this.tryGet(key);
+
+    if (!record) {
+      throw new Error("Record not found");
+    }
+
+    return record;
+  }
+
+  public tryGet<TKey>(key: TKey): T | undefined {
     if (!this.primaryKey) {
       throw new Error("Key has not been defined");
     }
 
-    return this.find((e: any) => e[this.primaryKey] === key)!;
+    return this.find((e: any) => e[this.primaryKey] === key);
   }
 
   public sole() {

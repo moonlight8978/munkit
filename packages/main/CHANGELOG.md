@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.16.0
+
+### Minor Changes
+
+- fix: fix collection.get typing
+
 ## 1.15.0
 
 ### Minor Changes
