@@ -62,7 +62,11 @@ export class Attributes<T extends ConfigMapRecordContract> {
       propertyName,
       attributes,
     ] of this.#nameToCollectionAttributes.entries()) {
-      const collection = record!.getAttribute(
+      if (!record) {
+        continue;
+      }
+
+      const collection = record.getAttribute(
         propertyName,
       ) as ConfigMapCollection<ConfigMapRecordContract>;
       const collectionRecord = attributes.updateOrCreate(

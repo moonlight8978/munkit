@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.17.0
+
+### Minor Changes
+
+- fix: fix record empty on collection
+
 ## 1.16.0
 
 ### Minor Changes
