@@ -1,5 +1,11 @@
 # @munkit/main
 
+## 1.18.0
+
+### Minor Changes
+
+- use map for config map collection
+
 ## 1.17.0
 
 ### Minor Changes

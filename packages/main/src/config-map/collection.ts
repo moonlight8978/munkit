@@ -6,6 +6,8 @@ export class ConfigMapCollection<
   T extends ConfigMapRecordContract,
 > extends Array<T> {
   declare primaryKey: string;
+  #items: T[];
+  #idToItem = new Map<any, T>();
 
   constructor(
     public klass: { new (...args: any[]): T },
@@ -14,7 +16,23 @@ export class ConfigMapCollection<
     super();
     const primaryKeys = getAllMetadata("configmap.key", klass);
     this.primaryKey = primaryKeys[0]?.name;
+    this.#items = items;
+
     this.push(...items);
+
+    if (this.primaryKey) {
+      this.#idToItem = new Map(
+        items.map((item) => [item[this.primaryKey], item]),
+      );
+    }
+  }
+
+  public push(...items: T[]) {
+    if (this.primaryKey) {
+      items.forEach((item) => this.#idToItem.set(item[this.primaryKey], item));
+    }
+
+    return super.push(...items);
   }
 
   // public static import<T>(klass: any, rows: any[]) {
@@ -27,13 +45,19 @@ export class ConfigMapCollection<
   // }
 
   public map<U>(callbackfn: (value: T, index: number, array: T[]) => U): U[] {
-    return Array.from(this).map(callbackfn);
+    return this.#items.map(callbackfn);
   }
 
   public filter(
     callbackfn: (value: T, index: number, array: T[]) => unknown,
   ): T[] {
-    return Array.from(this).filter(callbackfn);
+    return this.#items.filter(callbackfn);
+  }
+
+  public flatMap<U>(
+    callbackfn: (value: T, index: number, array: T[]) => U[],
+  ): U[] {
+    return this.#items.flatMap(callbackfn);
   }
 
   public get<TKey>(key: TKey): T {
@@ -51,7 +75,7 @@ export class ConfigMapCollection<
       throw new Error("Key has not been defined");
     }
 
-    return this.find((e: any) => e[this.primaryKey] === key);
+    return this.#idToItem.get(key) || undefined;
   }
 
   public sole() {
