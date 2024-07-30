@@ -8,7 +8,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.18.0",
+  "version": "1.19.0",
   "main": "./build/cjs/main.js",
   "types": "./build/cjs/main.d.ts",
   "module": "./build/esm/main.mjs",

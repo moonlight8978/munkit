@@ -6,7 +6,6 @@ export class ConfigMapCollection<
   T extends ConfigMapRecordContract,
 > extends Array<T> {
   declare primaryKey: string;
-  #items: T[];
   #idToItem = new Map<any, T>();
 
   constructor(
@@ -16,7 +15,6 @@ export class ConfigMapCollection<
     super();
     const primaryKeys = getAllMetadata("configmap.key", klass);
     this.primaryKey = primaryKeys[0]?.name;
-    this.#items = items;
 
     this.push(...items);
 
@@ -45,19 +43,19 @@ export class ConfigMapCollection<
   // }
 
   public map<U>(callbackfn: (value: T, index: number, array: T[]) => U): U[] {
-    return this.#items.map(callbackfn);
+    return Array.from(this).map(callbackfn);
   }
 
   public filter(
     callbackfn: (value: T, index: number, array: T[]) => unknown,
   ): T[] {
-    return this.#items.filter(callbackfn);
+    return Array.from(this).filter(callbackfn);
   }
 
   public flatMap<U>(
     callbackfn: (value: T, index: number, array: T[]) => U[],
   ): U[] {
-    return this.#items.flatMap(callbackfn);
+    return Array.from(this).flatMap(callbackfn);
   }
 
   public get<TKey>(key: TKey): T {
